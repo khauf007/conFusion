@@ -117,7 +117,7 @@
                         <div class="form-group-row">
                             <label for="smoking" class="col-md-3 col-form-label">Section</label>
                             <div class="offset-md-3 col-md-9">
-                               <button class="btn btn-success" id="smokinga">Non-smoking</button>
+                               <button class="btn btn-success" id="smoking">Non-smoking</button>
                                <button class="btn btn-danger">Smoking</button>
                             </div>
                         </div>
@@ -206,6 +206,9 @@
                     <a href="#mycarousel" class="carousel-control-next" role="button" data-slide="next">
                         <span class="carousel-control-next-icon"></span>
                     </a>
+                        <button class="btn btn-sm btn-danger" id="carouselButton">
+                            <span class="fa fa-pause"></span>
+                        </button>
                 </div>
             </div>
         </div>
@@ -367,6 +370,23 @@
             $('[data-toggle="tooltip"]').tooltip();
         });
     </script> -->
+    <script>
+        $(document).ready(function(){
+            $('#mycarousel').carousel({interval:2000});
+        $('#carouselButton').click(function(){
+            if($('#carouselButton').children('span').hasClass('fa-pause')){
+                $('#mycarousel').carousel('pause');
+                $('#carouselButton').children('span').removeClass('fa-pause');
+                $('#carouselButton').children('span').addClass('fa-play');
+            }
+            else{
+                $('#mycarousel').carousel('cycle');
+                $('#carouselButton').children('span').removeClass('fa-play');
+                $('#carouselButton').children('span').addClass('fa-pause');
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
